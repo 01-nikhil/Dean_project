@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import CreateRegulation from './create-regulation';  // <-- Ensure this path is correct
+import AddStream from './add-stream';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AdminHome from './admin_home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <Router>
+      <Routes>
+        <Route path="/" element={<AdminHome />} />
+        <Route path="/create-regulation" element={<CreateRegulation />} />
+        <Route path="/add-stream" element={<AddStream />} />
+        {/* You can add more routes for edit and delete pages here */}
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
